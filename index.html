@@ -28,7 +28,9 @@
 
     <script>
         function enviar() {
-            const url = "https://script.google.com/macros/s/AKfycbxFMBRtQ5BAaSmvwCnGu8aAia1h_olqNrSQAdr7pWlUAEOM6-xu6kP87GtBsHSt-ek/exec";
+            // REEMPLAZA ESTA URL CON LA QUE TE DIO GOOGLE AL DESPLEGAR
+            const url = "https://script.google.com/macros/s/AKfycbzixleaiSRNjEoYfH_u0_HT5_A1Gz2sMizkFRDSxd2e-epk07HDaR27E-ZbbUB56jSF/exec";
+            
             const datos = {
                 dni: document.getElementById('dni').value,
                 apellido: document.getElementById('apellido').value.toUpperCase(),
@@ -39,12 +41,17 @@
 
             fetch(url, {
                 method: 'POST',
+                mode: 'no-cors', // Fundamental para evitar errores de bloqueo CORS
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(datos)
             })
-            .then(r => r.text())
-            .then(res => alert("Respuesta: " + res))
-            .catch(err => alert("Error: " + err));
+            .then(() => {
+                alert("Pedido enviado con éxito");
+                document.getElementById('form').reset();
+            })
+            .catch(err => {
+                alert("Error al enviar: " + err);
+            });
         }
     </script>
 </body>

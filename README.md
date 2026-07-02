@@ -28,7 +28,7 @@
 
     <script>
         function enviar() {
-            const url = "PEGA_AQUÍ_TU_URL_DE_APPSCRIPT_QUE_TERMINA_EN_/exec";
+            const url = "https://script.google.com/macros/s/AKfycbxFMBRtQ5BAaSmvwCnGu8aAia1h_olqNrSQAdr7pWlUAEOM6-xu6kP87GtBsHSt-ek/exec";
             const datos = {
                 dni: document.getElementById('dni').value,
                 apellido: document.getElementById('apellido').value.toUpperCase(),
